@@ -9,6 +9,7 @@ public class VidaPlayer : MonoBehaviour
     public float vida = 100;
     public Image barraDeVida;
     public float damage = 10;
+
     void Update()
     {
         vida = Mathf.Clamp(vida, 0, 100);
@@ -18,6 +19,7 @@ public class VidaPlayer : MonoBehaviour
             Destroy(player);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("aquiVaElTag"))
