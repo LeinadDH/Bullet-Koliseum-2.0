@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Lean.Pool;
 
 public class GunInput : BulletInput
 {
@@ -77,11 +78,13 @@ public class GunInput : BulletInput
 
         if (gunSprite.flipX == false)
         {
-            Instantiate(data.bulletPrefab, transform.position + new Vector3(1, 0, 0), transform.rotation);
+            LeanPool.Spawn(data.bulletPrefab, transform.position + new Vector3(1, 0, 0), transform.rotation);
+            //Instantiate(data.bulletPrefab, transform.position + new Vector3(1, 0, 0), transform.rotation);
         }
         if (gunSprite.flipX == true)
         {
-            Instantiate(data.bulletPrefab, transform.position + new Vector3(-1, 0, 0), Quaternion.Euler(inverseRotation));
+            LeanPool.Spawn(data.bulletPrefab, transform.position + new Vector3(-1, 0, 0), Quaternion.Euler(inverseRotation));
+            //Instantiate(data.bulletPrefab, transform.position + new Vector3(-1, 0, 0), Quaternion.Euler(inverseRotation));
         }
 
     }

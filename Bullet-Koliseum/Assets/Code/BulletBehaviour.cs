@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
 public class BulletBehaviour : MonoBehaviour
 {
@@ -31,14 +32,9 @@ public class BulletBehaviour : MonoBehaviour
         Invoke("Despawn", despawnDelay);
     }
 
-    protected virtual void OnDisable()
-    {
-        Destroy(gameObject);
-    }
-
     protected virtual void Despawn()
     {
-        this.gameObject.SetActive(false);
+        LeanPool.Despawn(this.gameObject);
     }
 
     protected virtual IEnumerator OnCollisionEnter2D(Collision2D collision)
