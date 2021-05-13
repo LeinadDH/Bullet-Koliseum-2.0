@@ -74,6 +74,7 @@ public class GunInput : BulletInput
     {
         audioSource.PlayOneShot(data.shootClip);
         bulletRemaining--;
+
         if (gunSprite.flipX == false)
         {
             Instantiate(data.bulletPrefab, transform.position + new Vector3(1, 0, 0), transform.rotation);

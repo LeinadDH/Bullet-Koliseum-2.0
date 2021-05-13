@@ -6,7 +6,10 @@ TagManager:
   tags:
   - GunPosition1
   - Gun
-  - aquiVaElTag
+  - rifleDeAsalto
+  - tioGaspacho
+  - Asalto
+  - MiniGun
   layers:
   - Default
   - TransparentFX

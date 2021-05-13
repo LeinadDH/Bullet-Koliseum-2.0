@@ -5,14 +5,17 @@ using UnityEngine.InputSystem;
 
 public class InputHelper_SideView : InputHelper
 {
-    public Transform theGunPosition;
-    public bool getGun = false;
-    public bool SpawnGun = false;
+    public Transform RiflePosition;
+    public Transform MiniPosition;
+
+    public bool getRifle = false;
+    public bool getMiniGun = false;
     Collider2D i;
 
     public int Speed;
 
-    public SpriteRenderer weapon;
+    public SpriteRenderer RifleFlip;
+    public SpriteRenderer MiniFlip;
 
 
     [Header("Move")]
@@ -27,9 +30,6 @@ public class InputHelper_SideView : InputHelper
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     public Collider2D collision;
-
-    public Transform Spawner;
-    public float timeOfSpawn;
 
     Rigidbody2D rb2D;
     BoxCollider2D box;
@@ -86,18 +86,6 @@ public class InputHelper_SideView : InputHelper
         {
             Speed = -1;
         }
-
-        if (SpawnGun == true)
-        {
-            timeOfSpawn += Time.deltaTime;
-
-            if (timeOfSpawn >= 5f)
-            {
-                Spawner.gameObject.SetActive(true);
-                SpawnGun = false;
-                timeOfSpawn = 0;
-            }
-        }
     }
 
     protected override void Action(InputAction.CallbackContext value)
@@ -127,21 +115,33 @@ public class InputHelper_SideView : InputHelper
 
     protected override void PickUp(InputAction.CallbackContext value)
     {
-        
-        if (getGun == true)
+        i.gameObject.SetActive(false); 
+
+        if (getRifle == true)
         {
-            i.gameObject.SetActive(false);
-            theGunPosition.gameObject.SetActive(true);
-            getGun = false;
-            SpawnGun = true;
+            RiflePosition.gameObject.SetActive(true);
+            MiniPosition.gameObject.SetActive(false);
+            getRifle = false;
+        }
+        if (getMiniGun == true)
+        {     
+            MiniPosition.gameObject.SetActive(true);
+            RiflePosition.gameObject.SetActive(false);
+            getMiniGun = false;
         }
     }
 
     protected override void Drop(InputAction.CallbackContext value)
     {
-        if (getGun == false)
+        i.gameObject.SetActive(true);
+
+        if (getRifle == false)
         {
-            theGunPosition.gameObject.SetActive(false);  
+            RiflePosition.gameObject.SetActive(false);  
+        }
+        if (getMiniGun == false)
+        {
+            MiniPosition.gameObject.SetActive(false);
         }
     }
 
@@ -149,15 +149,24 @@ public class InputHelper_SideView : InputHelper
     {
         i = collision;
 
-        if(collision.gameObject.CompareTag("Gun"))
+        if(collision.gameObject.CompareTag("rifleDeAsalto"))
         {
-            getGun = true;
+            getRifle = true;
+            getMiniGun = false;
+        }
+
+        if (collision.gameObject.CompareTag("MiniGun"))
+        {
+            getMiniGun = true;
+            getRifle = false;
         }
     }
 
     void WeaponFlip()
     {
-        weapon.flipX = spriteRenderer.flipX;
+        RifleFlip.flipX = spriteRenderer.flipX;
+
+        MiniFlip.flipX = spriteRenderer.flipX;
     }
 
 

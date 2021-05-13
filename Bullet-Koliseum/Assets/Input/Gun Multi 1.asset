@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98709e6a5872884aace22d0737e207e, type: 3}
+  m_Script: {fileID: 11500000, guid: 656fdef61f2c2cd4597029df479c080e, type: 3}
   m_Name: Gun Multi 1
   m_EditorClassIdentifier: 
-  bulletCapacity: 1
-  bulletShotTime: 0.01
-  bulletReloadTime: 2
-  bulletPrefab: {fileID: 1591524084587779171, guid: 5fcdaac0ffeb9404495ed507c1a9be6e,
+  bulletCapacity: 100
+  bulletShotTime: 0.1
+  bulletReloadTime: 1
+  bulletPrefab: {fileID: 3850702380417223581, guid: b5d158ed85dd4014d9e1b41abfa6bffc,
     type: 3}
-  gunIcon: {fileID: 0}
-  gunSprite: {fileID: 21300000, guid: 1e01176374ab9b64f9365e58e1bcc295, type: 3}
-  shootClip: {fileID: 8300000, guid: ac9865b96af2d6f449ad8f1c5c23b74d, type: 3}
-  reloadClip: {fileID: 8300000, guid: a2408c290424ea74e805ed9207fddad9, type: 3}
-  emptyClip: {fileID: 8300000, guid: 40badf4852553d646b2dc27cf61007db, type: 3}
+  gunIcon: {fileID: 21300000, guid: a40de8b466e019b4fa79956aa09ed6bc, type: 3}
+  gunSprite: {fileID: 21300000, guid: a40de8b466e019b4fa79956aa09ed6bc, type: 3}
+  shootClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  emptyClip: {fileID: 0}
