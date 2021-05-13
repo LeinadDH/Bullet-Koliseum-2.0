@@ -1,0 +1,33 @@
+{
+    "name": "MonaChinaInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "32e4ef5e-37e0-4b81-99fa-e186c1f31bd2",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "39f9a19c-ecf2-4c24-8baa-5a30e7d5593b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6578ff30-97f6-4b81-9db6-8ee67e92048c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

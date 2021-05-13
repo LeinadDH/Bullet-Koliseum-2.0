@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656fdef61f2c2cd4597029df479c080e, type: 3}
+  m_Name: Gun x3
+  m_EditorClassIdentifier: 
+  bulletCapacity: 30
+  bulletShotTime: 0.5
+  bulletReloadTime: 5
+  bulletPrefab: {fileID: 4574082278290614253, guid: 9f3d4e091ee746b4ebe16a16a9d15b85,
+    type: 3}
+  gunIcon: {fileID: 21300000, guid: 375754fbff204814db41593109253f93, type: 3}
+  gunSprite: {fileID: 21300000, guid: 375754fbff204814db41593109253f93, type: 3}
+  shootClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  emptyClip: {fileID: 0}
