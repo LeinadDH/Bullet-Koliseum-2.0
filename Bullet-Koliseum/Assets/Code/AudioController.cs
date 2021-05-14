@@ -12,7 +12,7 @@ public class AudioController : MonoBehaviour
     [Space]
     public Slider musicSilder;
     public TextMeshProUGUI musicTXT;
-    private void Awake()
+    private void Start()
     {
         musicSilder.minValue = 0.001f;
         musicSilder.maxValue = 1;
@@ -25,16 +25,6 @@ public class AudioController : MonoBehaviour
         audioMixer.SetFloat(musicVolume, Mathf.Log10(v) * 20);
         musicTXT?.SetText(Mathf.RoundToInt(v * 100).ToString() + " %");
         PlayerPrefs.SetFloat(musicVolume, v);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerPrefs.Save();
     }
 }
