@@ -703,12 +703,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4580514177914417729}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000059604645, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.9914913, y: -0.3383618, z: 0}
+  m_LocalScale: {x: 1.4999999, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4580514178104600016}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &4580514177914417790
 SpriteRenderer:
@@ -875,8 +875,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4580514177503964345}
-  - {fileID: 4580514177914417789}
   - {fileID: 1456486922723686144}
+  - {fileID: 4580514177914417789}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1087,6 +1087,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4580514178104600019}
   animator: {fileID: 4580514178104600025}
   collision: {fileID: 4580514178104600020}
+  menu: {fileID: 0}
 --- !u!95 &4580514178104600025
 Animator:
   serializedVersion: 3
@@ -1499,7 +1500,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4580514178104600016}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5360953928306771964
 SpriteRenderer:

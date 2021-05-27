@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
 
-public class BulletBehaviour : MonoBehaviour
+public class BulletBehaviour : MonoBehaviour, IPoolable
 {
 
     [Header("Bullet Config")]
@@ -26,10 +26,16 @@ public class BulletBehaviour : MonoBehaviour
         }
     }
 
-    protected virtual void OnEnable() 
+    public void OnSpawn()
     {
+        rb2D.simulated = true;
         rb2D.velocity = transform.right * speed;
         Invoke("Despawn", despawnDelay);
+    }
+
+    public void OnDespawn()
+    {
+        
     }
 
     protected virtual void Despawn()
