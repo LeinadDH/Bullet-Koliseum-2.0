@@ -10,6 +10,8 @@ TagManager:
   - tioGaspacho
   - Asalto
   - MiniGun
+  - aquiVaElTag
+  - LifeCanvas
   layers:
   - Default
   - TransparentFX

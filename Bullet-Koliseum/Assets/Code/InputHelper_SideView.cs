@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class InputHelper_SideView : InputHelper
 {
+    public Transform leftHand;
+
     public Transform RiflePosition;
     public Transform MiniPosition;
 
@@ -47,7 +49,7 @@ public class InputHelper_SideView : InputHelper
     {
         rb2D = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
-        i = GetComponent<Collider2D>();
+        //i = GetComponent<Collider2D>();
         origin = new Vector2(0, box.bounds.extents.y * -2.5f) + box.offset;
         size = new Vector2(box.bounds.size.x, 0.01f);
     }
@@ -88,6 +90,12 @@ public class InputHelper_SideView : InputHelper
         {
             Speed = -1;
         }
+
+        Vector3 leftHandPos = this.transform.InverseTransformPoint(leftHand.position);
+        if (spriteRenderer.flipX)
+            leftHandPos.x *= -1;
+        RiflePosition.localPosition = leftHandPos;
+        MiniPosition.localPosition = leftHandPos;
     }
 
     protected override void Action(InputAction.CallbackContext value)
@@ -135,6 +143,9 @@ public class InputHelper_SideView : InputHelper
 
     protected override void Drop(InputAction.CallbackContext value)
     {
+        if (i == null)
+            return;
+
         i.gameObject.SetActive(true);
 
         if (getRifle == false)
@@ -170,6 +181,11 @@ public class InputHelper_SideView : InputHelper
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (i!=null && i.Equals(collision))
+            i = null;
+    }
 
     void WeaponFlip()
     {
