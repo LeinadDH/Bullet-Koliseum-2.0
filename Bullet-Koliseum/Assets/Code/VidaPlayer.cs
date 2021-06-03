@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class VidaPlayer : MonoBehaviour
 {
@@ -7,12 +8,39 @@ public class VidaPlayer : MonoBehaviour
     public float vida = 100;
     public float damageOne = 5;
     public float damageTwo = 1;
-    public TextMeshProUGUI showLife;
+
+    public Sprite playerFace;
+    public PlayerLifeHUD playerLifePrefab;
+    PlayerLifeHUD currentPlayerLifePrefab;
+    
+    Tween tw;
+    [Header("UI Hit Animation")]
+    public float strength = 5;
+    public float duration = 0.5f;
+    public float vibrato = 20;
+    public float elasticity = 0.5f;
+
+    private void Awake()
+    {
+        GameObject lifeCanvas = GameObject.FindGameObjectWithTag("LifeCanvas");
+        if (lifeCanvas)
+        {
+            currentPlayerLifePrefab = Instantiate(playerLifePrefab, lifeCanvas.transform);
+            currentPlayerLifePrefab.faceSprite.sprite = playerFace;
+        }
+    }
 
     void Update()
     {
         vida = Mathf.Clamp(vida, 0, 100);
-        showLife.text = vida + "%";
+
+        if (currentPlayerLifePrefab)
+        {
+            currentPlayerLifePrefab.numbers.text = vida + "%";
+            currentPlayerLifePrefab.lifeBar.fillAmount = (vida / 100f);
+            currentPlayerLifePrefab.lifeBar.color = Color.Lerp(Color.red, Color.green, (vida / 100f));
+        }
+
         if(vida == 0)
         {
             Destroy(player);
@@ -21,13 +49,29 @@ public class VidaPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Asalto"))
+        if (other.gameObject.CompareTag("Asalto")|| other.gameObject.CompareTag("tioGaspacho"))
         {
-            vida = (vida - damageOne);
-        }
-        if (other.gameObject.CompareTag("tioGaspacho"))
-        {
-            vida = (vida - damageTwo);
+            float damage;
+
+            switch (other.gameObject.tag)
+            {
+                case "Asalto":
+                    damage = damageOne;
+                    break;
+
+                case "tioGaspacho":
+                    damage = damageTwo;
+                    break;
+
+                default:
+                    damage = 0;
+                    break;
+            }
+
+            vida = (vida - damage);
+
+            if (damage != 0 && !tw.IsActive())
+                tw = currentPlayerLifePrefab.transform.DOPunchRotation(Vector3.forward*strength, 0.5f, 20, 0.5f);
         }
     }
 }

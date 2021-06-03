@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputHelper_SideView : InputHelper
 {
+    public Transform leftHand;
+
     public Transform RiflePosition;
     public Transform MiniPosition;
 
@@ -42,12 +45,15 @@ public class InputHelper_SideView : InputHelper
     float horizontalMove;
 
     public GameObject menu;
+    
+    public Action<InputAction.CallbackContext> onReload;
+    public Action<InputAction.CallbackContext> onShoot;
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
-        i = GetComponent<Collider2D>();
+        //i = GetComponent<Collider2D>();
         origin = new Vector2(0, box.bounds.extents.y * -2.5f) + box.offset;
         size = new Vector2(box.bounds.size.x, 0.01f);
     }
@@ -88,6 +94,12 @@ public class InputHelper_SideView : InputHelper
         {
             Speed = -1;
         }
+
+        Vector3 leftHandPos = this.transform.InverseTransformPoint(leftHand.position);
+        if (spriteRenderer.flipX)
+            leftHandPos.x *= -1;
+        RiflePosition.localPosition = leftHandPos;
+        MiniPosition.localPosition = leftHandPos;
     }
 
     protected override void Action(InputAction.CallbackContext value)
@@ -117,7 +129,7 @@ public class InputHelper_SideView : InputHelper
 
     protected override void PickUp(InputAction.CallbackContext value)
     {
-        i.gameObject.SetActive(false); 
+        i?.gameObject.SetActive(false); 
 
         if (getRifle == true)
         {
@@ -135,6 +147,9 @@ public class InputHelper_SideView : InputHelper
 
     protected override void Drop(InputAction.CallbackContext value)
     {
+        if (i == null)
+            return;
+
         i.gameObject.SetActive(true);
 
         if (getRifle == false)
@@ -145,6 +160,16 @@ public class InputHelper_SideView : InputHelper
         {
             MiniPosition.gameObject.SetActive(false);
         }
+    }
+
+    protected override void Reload(InputAction.CallbackContext value)
+    {
+        onReload?.Invoke(value);
+    }
+
+    protected override void Shoot(InputAction.CallbackContext value)
+    {
+        onShoot?.Invoke(value);
     }
 
     protected override void Menu(InputAction.CallbackContext value)
@@ -170,6 +195,11 @@ public class InputHelper_SideView : InputHelper
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (i!=null && i.Equals(collision))
+            i = null;
+    }
 
     void WeaponFlip()
     {
@@ -177,6 +207,4 @@ public class InputHelper_SideView : InputHelper
 
         MiniFlip.flipX = spriteRenderer.flipX;
     }
-
-
 }
