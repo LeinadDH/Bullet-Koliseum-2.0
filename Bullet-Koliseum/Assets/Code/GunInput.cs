@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Lean.Pool;
 
-public class GunInput : BulletInput
+public class GunInput : MonoBehaviour
 {
     Vector3 inverseRotation = new Vector3(0, 180, 0);
-    protected override void Reload(InputAction.CallbackContext value)
+    void ReloadInput(InputAction.CallbackContext value)
     {
         reloadingState = ReloadingState.StartReloading;
     }
 
-    protected override void Shoot(InputAction.CallbackContext value)
+    void ShootInput(InputAction.CallbackContext value)
     {
         if (bulletRemaining > 0)
         {
@@ -38,14 +38,35 @@ public class GunInput : BulletInput
     protected ShootingState shootingState;
     public AudioSource audioSource;
 
+    InputHelper_SideView currentInput;
+
+    private void Awake()
+    {
+        currentInput = GetComponentInParent<InputHelper_SideView>();
+    }
+
     protected virtual void OnEnable()
     {
+        if (currentInput)
+        {
+            currentInput.onReload += ReloadInput;
+            currentInput.onShoot += ShootInput;
+        }
+
         SetNewGunData(data);
         bulletRemaining = data.bulletCapacity;
 
         StartCoroutine(ShootState());
     }
 
+    private void OnDisable()
+    {
+        if (currentInput)
+        {
+            currentInput.onReload -= ReloadInput;
+            currentInput.onShoot -= ShootInput;
+        }
+    }
 
     protected virtual IEnumerator ShootState()
     {
@@ -73,7 +94,8 @@ public class GunInput : BulletInput
 
     public virtual void Shoot()
     {
-        audioSource.PlayOneShot(data.shootClip);
+        if (data.shootClip)
+            audioSource.PlayOneShot(data.shootClip);
         bulletRemaining--;
 
         if (gunSprite.flipX == false)

@@ -687,7 +687,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4580514177914417789}
   - component: {fileID: 4580514177914417790}
-  - component: {fileID: 4580514177914417788}
   - component: {fileID: 4580514177914417791}
   m_Layer: 0
   m_Name: rifle_de_asalto
@@ -760,37 +759,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4580514177914417788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580514177914417729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 862c25182983f914eb2c5e5bb1dfdbf6,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &4580514177914417791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def024b9c3d1bc44f900903cf56ef693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftHand: {fileID: 0}
   RiflePosition: {fileID: 4580514177914417789}
   MiniPosition: {fileID: 1456486922723686144}
   getRifle: 0
@@ -1123,7 +1092,9 @@ MonoBehaviour:
   vida: 100
   damageOne: 5
   damageTwo: 1
-  showLife: {fileID: 0}
+  playerFace: {fileID: 21300000, guid: b9c71aa22bfb63748aaf20ab833f692e, type: 3}
+  playerLifePrefab: {fileID: 1729934208459805430, guid: cbe3f5451ac43d84cb60554f4ade5152,
+    type: 3}
 --- !u!1 &4580514178140655394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1450,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1456486922723686144}
   - component: {fileID: 5360953928306771964}
-  - component: {fileID: 2215028306188984866}
   - component: {fileID: 6353768522890405904}
   m_Layer: 0
   m_Name: minigun
@@ -1552,37 +1522,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2215028306188984866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4825329154892319315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 862c25182983f914eb2c5e5bb1dfdbf6,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &6353768522890405904
 MonoBehaviour:
   m_ObjectHideFlags: 0

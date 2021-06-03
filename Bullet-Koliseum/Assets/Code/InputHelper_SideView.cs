@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,6 +45,9 @@ public class InputHelper_SideView : InputHelper
     float horizontalMove;
 
     public GameObject menu;
+    
+    public Action<InputAction.CallbackContext> onReload;
+    public Action<InputAction.CallbackContext> onShoot;
 
     private void Start()
     {
@@ -125,7 +129,7 @@ public class InputHelper_SideView : InputHelper
 
     protected override void PickUp(InputAction.CallbackContext value)
     {
-        i.gameObject.SetActive(false); 
+        i?.gameObject.SetActive(false); 
 
         if (getRifle == true)
         {
@@ -156,6 +160,16 @@ public class InputHelper_SideView : InputHelper
         {
             MiniPosition.gameObject.SetActive(false);
         }
+    }
+
+    protected override void Reload(InputAction.CallbackContext value)
+    {
+        onReload?.Invoke(value);
+    }
+
+    protected override void Shoot(InputAction.CallbackContext value)
+    {
+        onShoot?.Invoke(value);
     }
 
     protected override void Menu(InputAction.CallbackContext value)
@@ -193,6 +207,4 @@ public class InputHelper_SideView : InputHelper
 
         MiniFlip.flipX = spriteRenderer.flipX;
     }
-
-
 }

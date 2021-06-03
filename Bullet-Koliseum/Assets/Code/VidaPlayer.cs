@@ -12,7 +12,13 @@ public class VidaPlayer : MonoBehaviour
     public Sprite playerFace;
     public PlayerLifeHUD playerLifePrefab;
     PlayerLifeHUD currentPlayerLifePrefab;
+    
     Tween tw;
+    [Header("UI Hit Animation")]
+    public float strength = 5;
+    public float duration = 0.5f;
+    public float vibrato = 20;
+    public float elasticity = 0.5f;
 
     private void Awake()
     {
@@ -65,7 +71,7 @@ public class VidaPlayer : MonoBehaviour
             vida = (vida - damage);
 
             if (damage != 0 && !tw.IsActive())
-                tw = currentPlayerLifePrefab.transform.DOPunchRotation(Vector3.forward, 0.5f, 20, 0.5f);
+                tw = currentPlayerLifePrefab.transform.DOPunchRotation(Vector3.forward*strength, 0.5f, 20, 0.5f);
         }
     }
 }

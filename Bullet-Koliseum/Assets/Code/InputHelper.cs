@@ -20,6 +20,8 @@ public abstract class InputHelper : MonoBehaviour
         playerInput.actions[InputHelperActions.PickUp.ToString()].performed += PickUp;
         playerInput.actions[InputHelperActions.Drop.ToString()].performed += Drop;
         playerInput.actions[InputHelperActions.Menu.ToString()].performed += Menu;
+        playerInput.actions[BulletInputHelper.Reload.ToString()].performed += Reload;
+        playerInput.actions[BulletInputHelper.Shoot.ToString()].performed += Shoot;
 
         playerInput.actions[InputHelperActions.Action.ToString()].canceled += Action;
         playerInput.actions[InputHelperActions.Jump.ToString()].canceled += Jump;
@@ -27,6 +29,8 @@ public abstract class InputHelper : MonoBehaviour
         playerInput.actions[InputHelperActions.PickUp.ToString()].canceled += PickUp;
         playerInput.actions[InputHelperActions.Drop.ToString()].canceled += Drop;
         playerInput.actions[InputHelperActions.Menu.ToString()].canceled += Menu;
+        playerInput.actions[BulletInputHelper.Reload.ToString()].canceled += Reload;
+        playerInput.actions[BulletInputHelper.Shoot.ToString()].canceled += Shoot;
     }
 
     protected abstract void Action(InputAction.CallbackContext value);
@@ -35,4 +39,6 @@ public abstract class InputHelper : MonoBehaviour
     protected abstract void PickUp(InputAction.CallbackContext value);
     protected abstract void Drop(InputAction.CallbackContext value);
     protected abstract void Menu(InputAction.CallbackContext value);
+    protected abstract void Reload(InputAction.CallbackContext value);
+    protected abstract void Shoot(InputAction.CallbackContext value);
 }
