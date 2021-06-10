@@ -1,0 +1,52 @@
+{
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "Player Movement",
+            "id": "a00921fe-dffa-45ad-8d6d-b01f2df2352a",
+            "actions": [
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "59147cd2-7653-4695-9484-cd8c1afa277a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "movement",
+                    "type": "Button",
+                    "id": "ab530433-6c7a-43b7-9de0-c34eea63b8f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6004fda8-8163-4524-ad21-47b1775d5525",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f8dd2d1-d36e-49c7-b795-184a022841e4",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
