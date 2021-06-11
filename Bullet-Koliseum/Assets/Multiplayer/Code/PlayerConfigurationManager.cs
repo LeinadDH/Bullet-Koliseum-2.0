@@ -12,7 +12,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     [SerializeField]
     private int MinPlayers = 2;
-    
+
     [Space]
     public GameObject playerSetupMenuPrefab;
 
@@ -20,32 +20,31 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Debug.Log("SINGLETON - Trying to create another instance of singleton");
 
-            DestroyImmediate(Instance.gameObject);
+            DestroyImmediate(this.gameObject);
+            Instance.Awake();
+            return;
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
         }
 
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+
         playerConfigs = new List<PlayerConfiguration>();
 
-        List<Transform> child = new List<Transform>();
-
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = transform.childCount - 1; i >= 0; i--)
         {
-            child.Add(transform.GetChild(i));
-        }
-
-        for (int i = 0; i < child.Count; i++)
-        {
-            Destroy(child[i].gameObject);
+            Destroy(transform.GetChild(i).gameObject);
         }
 
         PlayerInputManager.instance.EnableJoining();
     }
-    
+
     public void SetPlayerPrefab(int index, GameObject player)
     {
         playerConfigs[index].playerPrefab = player;
@@ -54,7 +53,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void ReadyPlayer(int index)
     {
         playerConfigs[index].IsReady = true;
-        if(playerConfigs.Count >= MinPlayers && playerConfigs.TrueForAll(p => p.IsReady))
+        if (playerConfigs.Count == MinPlayers && playerConfigs.TrueForAll(p => p.IsReady))
         {
             PlayerInputManager.instance.DisableJoining();
             SceneManager.LoadScene("MonaChina");
@@ -65,9 +64,9 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         Debug.Log("Player Join" + pi.playerIndex);
         pi.transform.SetParent(transform);
-        if(!playerConfigs.Exists(p => p.PlayerIndex == pi.playerIndex))
+        if (!playerConfigs.Exists(p => p.PlayerIndex == pi.playerIndex))
         {
-            playerConfigs.Add(new PlayerConfiguration( pi));
+            playerConfigs.Add(new PlayerConfiguration(pi));
         }
         CreateSelectionMenu(pi);
     }
@@ -105,8 +104,8 @@ public class PlayerConfiguration
 
     public void SpawnPlayer(Vector3 pos)
     {
-        InputHelper_SideView inputHelper =playerPrefab.GetComponent<InputHelper_SideView>();
+        InputHelper_SideView inputHelper = playerPrefab.GetComponent<InputHelper_SideView>();
         inputHelper.playerInput = Input;
-        GameObject player = Object.Instantiate(playerPrefab, pos, Quaternion.identity);         
+        GameObject player = Object.Instantiate(playerPrefab, pos, Quaternion.identity);
     }
 }
