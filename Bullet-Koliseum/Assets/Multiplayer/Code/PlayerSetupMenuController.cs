@@ -39,7 +39,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     public void SetPlayer(GameObject prefab)
     {
         if(!InputEnable) { return; }
-        PlayerConfigurationManager.Instance.SetPlayerPrefab(PlayerIndex, gameObject);
+        PlayerConfigurationManager.Instance.SetPlayerPrefab(PlayerIndex, prefab);
         readyPanel.SetActive(true);
         readyButton.Select();
         menuPanel.SetActive(false);
