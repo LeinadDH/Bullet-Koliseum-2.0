@@ -260,7 +260,6 @@ GameObject:
   - component: {fileID: 2863781247166718167}
   - component: {fileID: 2863781247166718160}
   - component: {fileID: 2863781247166718166}
-  - component: {fileID: 2863781247166718164}
   - component: {fileID: 2863781247166718165}
   - component: {fileID: 8314100879660349707}
   m_Layer: 0
@@ -277,7 +276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2863781247166718188}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.222, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
@@ -286,7 +285,7 @@ Transform:
   - {fileID: 9078386719180473930}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2863781247166718162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -399,8 +398,8 @@ MonoBehaviour:
   - {fileID: 2863781248336737301}
   - {fileID: 2863781247036945669}
   m_Bounds:
-    m_Center: {x: -0.017764926, y: 0.37974352, z: 0}
-    m_Extent: {x: 0.6615397, y: 1.1982384, z: 0}
+    m_Center: {x: -0.017764747, y: 0.37974352, z: 0}
+    m_Extent: {x: 0.66153973, y: 1.1982384, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!61 &2863781247166718167
@@ -469,37 +468,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2863781247166718164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2863781247166718188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9a92c6c6e96c5ce409843b09eb654966,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &2863781247166718165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,14 +480,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def024b9c3d1bc44f900903cf56ef693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
   leftHand: {fileID: 6027317672462380163}
   RiflePosition: {fileID: 2863781249008031425}
-  MiniPosition: {fileID: 0}
+  MiniPosition: {fileID: 9078386719180473930}
   getRifle: 0
   getMiniGun: 0
   Speed: 0
-  RifleFlip: {fileID: 0}
-  MiniFlip: {fileID: 0}
+  RifleFlip: {fileID: 2863781249008031452}
+  MiniFlip: {fileID: 1478869183131798963}
   walkSpeed: 2
   useLinearDrag: 1
   jumpForce: 1
@@ -1886,7 +1855,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3666377936353769379}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: -0.06, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []

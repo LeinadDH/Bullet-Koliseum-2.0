@@ -24,7 +24,7 @@ public class InputHelper_SideView : InputHelper
     [Header("Move")]
     public float walkSpeed = 1;
     public bool useLinearDrag = true;
-    
+
     [Header("Jump")]
     public float jumpForce = 1;
     public int multiJump = 1;
@@ -45,7 +45,7 @@ public class InputHelper_SideView : InputHelper
     float horizontalMove;
 
     public GameObject menu;
-    
+
     public Action<InputAction.CallbackContext> onReload;
     public Action<InputAction.CallbackContext> onShoot;
 
@@ -77,7 +77,7 @@ public class InputHelper_SideView : InputHelper
         #endregion
 
         #region Animation        
-        spriteRenderer.flipX = (rb2D.velocity.x == 0) ? spriteRenderer.flipX : (rb2D.velocity.x < 0) ? true : false;
+        spriteRenderer.flipX = (rb2D.velocity.x == 0) ? spriteRenderer.flipX : (rb2D.velocity.x > 0) ? true : false;
         animator.SetFloat("Speed", rb2D.velocity.sqrMagnitude);
         animator.SetFloat("Vertical", rb2D.velocity.y);
         animator.SetFloat("Horizontal", rb2D.velocity.x);
@@ -104,7 +104,7 @@ public class InputHelper_SideView : InputHelper
 
     protected override void Action(InputAction.CallbackContext value)
     {
-        
+
     }
 
     protected override void Jump(InputAction.CallbackContext value)
@@ -129,7 +129,7 @@ public class InputHelper_SideView : InputHelper
 
     protected override void PickUp(InputAction.CallbackContext value)
     {
-        i.gameObject.SetActive(false); 
+        i?.gameObject.SetActive(false);
 
         if (getRifle == true)
         {
@@ -138,7 +138,7 @@ public class InputHelper_SideView : InputHelper
             getRifle = false;
         }
         if (getMiniGun == true)
-        {     
+        {
             MiniPosition.gameObject.SetActive(true);
             RiflePosition.gameObject.SetActive(false);
             getMiniGun = false;
@@ -154,7 +154,7 @@ public class InputHelper_SideView : InputHelper
 
         if (getRifle == false)
         {
-            RiflePosition.gameObject.SetActive(false);  
+            RiflePosition.gameObject.SetActive(false);
         }
         if (getMiniGun == false)
         {
@@ -182,7 +182,7 @@ public class InputHelper_SideView : InputHelper
     {
         i = collision;
 
-        if(collision.gameObject.CompareTag("rifleDeAsalto"))
+        if (collision.gameObject.CompareTag("rifleDeAsalto"))
         {
             getRifle = true;
             getMiniGun = false;
@@ -197,14 +197,14 @@ public class InputHelper_SideView : InputHelper
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (i!=null && i.Equals(collision))
+        if (i != null && i.Equals(collision))
             i = null;
     }
 
     void WeaponFlip()
     {
-        RifleFlip.flipX = spriteRenderer.flipX;
+        RifleFlip.flipX = !spriteRenderer.flipX;
 
-        MiniFlip.flipX = spriteRenderer.flipX;
+        MiniFlip.flipX = !spriteRenderer.flipX;
     }
 }

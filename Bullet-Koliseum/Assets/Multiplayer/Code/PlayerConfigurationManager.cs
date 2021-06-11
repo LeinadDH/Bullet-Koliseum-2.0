@@ -92,7 +92,8 @@ public class PlayerConfiguration
 
     public void SpawnPlayer(Vector3 pos)
     {
-        GameObject player = Object.Instantiate(playerPrefab, pos, Quaternion.identity);
-        //player.GetComponent<PlayerInput>().actions = Input;
+        InputHelper_SideView inputHelper =playerPrefab.GetComponent<InputHelper_SideView>();
+        inputHelper.playerInput = Input;
+        GameObject player = Object.Instantiate(playerPrefab, pos, Quaternion.identity);         
     }
 }

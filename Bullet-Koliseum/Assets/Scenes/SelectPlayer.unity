@@ -522,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 9033829704289600607, guid: efa66c898a032f843bb42d2bc3d82f4e,
         type: 3}
       propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandlePlayerJoin
+      value: PlayerJoin
       objectReference: {fileID: 0}
     - target: {fileID: 9033829704289600607, guid: efa66c898a032f843bb42d2bc3d82f4e,
         type: 3}

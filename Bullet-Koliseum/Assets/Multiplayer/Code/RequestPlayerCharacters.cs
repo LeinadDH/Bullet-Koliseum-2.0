@@ -6,9 +6,9 @@ public class RequestPlayerCharacters : MonoBehaviour
 {
     void Start()
     {
-        foreach (var player in PlayerConfigurationManager.Instance.playerConfigs)
+        for (int i = 0; i <PlayerConfigurationManager.Instance.playerConfigs.Count; i++)
         {
-            player.SpawnPlayer(transform.position);
+            PlayerConfigurationManager.Instance.playerConfigs[i].SpawnPlayer(transform.position);
         }
     }
 }
