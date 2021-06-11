@@ -129,7 +129,7 @@ public class InputHelper_SideView : InputHelper
 
     protected override void PickUp(InputAction.CallbackContext value)
     {
-        i?.gameObject.SetActive(false); 
+        i.gameObject.SetActive(false); 
 
         if (getRifle == true)
         {

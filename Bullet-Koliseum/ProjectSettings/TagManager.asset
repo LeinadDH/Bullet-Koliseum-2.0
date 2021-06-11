@@ -12,6 +12,7 @@ TagManager:
   - MiniGun
   - aquiVaElTag
   - LifeCanvas
+  - MainLayout
   layers:
   - Default
   - TransparentFX

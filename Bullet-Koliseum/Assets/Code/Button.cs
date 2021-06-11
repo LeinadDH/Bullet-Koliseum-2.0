@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,5 +21,10 @@ public class Button : MonoBehaviour
     {
         Menu.SetActive(true);
         MusicMenu.SetActive(false);
+    }
+
+    internal void Select()
+    {
+        throw new NotImplementedException();
     }
 }
