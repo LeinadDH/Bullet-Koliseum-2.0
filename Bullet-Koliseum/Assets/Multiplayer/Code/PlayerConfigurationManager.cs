@@ -30,6 +30,19 @@ public class PlayerConfigurationManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(Instance);
         playerConfigs = new List<PlayerConfiguration>();
+
+        List<Transform> child = new List<Transform>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            child.Add(transform.GetChild(i));
+        }
+
+        for (int i = 0; i < child.Count; i++)
+        {
+            Destroy(child[i].gameObject);
+        }
+
         PlayerInputManager.instance.EnableJoining();
     }
     
@@ -41,7 +54,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void ReadyPlayer(int index)
     {
         playerConfigs[index].IsReady = true;
-        if(playerConfigs.Count == MinPlayers && playerConfigs.TrueForAll(p => p.IsReady))
+        if(playerConfigs.Count >= MinPlayers && playerConfigs.TrueForAll(p => p.IsReady))
         {
             PlayerInputManager.instance.DisableJoining();
             SceneManager.LoadScene("MonaChina");

@@ -172,12 +172,6 @@ public class InputHelper_SideView : InputHelper
         onShoot?.Invoke(value);
     }
 
-    protected override void Menu(InputAction.CallbackContext value)
-    {
-        menu.SetActive(true);
-        Time.timeScale = 0;
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         i = collision;

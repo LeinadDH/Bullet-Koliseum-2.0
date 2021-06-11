@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum InputHelperActions { Action, Aim, Jump, Move, Reload, Shoot, PickUp, Drop, Menu}
+public enum InputHelperActions { Action, Aim, Jump, Move, Reload, Shoot, PickUp, Drop}
 
 public abstract class InputHelper : MonoBehaviour
 {
@@ -20,7 +20,6 @@ public abstract class InputHelper : MonoBehaviour
         playerInput.actions[InputHelperActions.Move.ToString()].performed += Move;
         playerInput.actions[InputHelperActions.PickUp.ToString()].performed += PickUp;
         playerInput.actions[InputHelperActions.Drop.ToString()].performed += Drop;
-        playerInput.actions[InputHelperActions.Menu.ToString()].performed += Menu;
         playerInput.actions[BulletInputHelper.Reload.ToString()].performed += Reload;
         playerInput.actions[BulletInputHelper.Shoot.ToString()].performed += Shoot;
 
@@ -29,7 +28,6 @@ public abstract class InputHelper : MonoBehaviour
         playerInput.actions[InputHelperActions.Move.ToString()].canceled += Move;
         playerInput.actions[InputHelperActions.PickUp.ToString()].canceled += PickUp;
         playerInput.actions[InputHelperActions.Drop.ToString()].canceled += Drop;
-        playerInput.actions[InputHelperActions.Menu.ToString()].canceled += Menu;
         playerInput.actions[BulletInputHelper.Reload.ToString()].canceled += Reload;
         playerInput.actions[BulletInputHelper.Shoot.ToString()].canceled += Shoot;
     }
@@ -44,7 +42,6 @@ public abstract class InputHelper : MonoBehaviour
     protected abstract void Move(InputAction.CallbackContext value);
     protected abstract void PickUp(InputAction.CallbackContext value);
     protected abstract void Drop(InputAction.CallbackContext value);
-    protected abstract void Menu(InputAction.CallbackContext value);
     protected abstract void Reload(InputAction.CallbackContext value);
     protected abstract void Shoot(InputAction.CallbackContext value);
 }

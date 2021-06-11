@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 158b814cc1f3589429f1ba662fed7f10
+guid: e9a9bc3975718aa42be568a2469b2046
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 622051235735599913
-    second: menu-de-balas2_0
+      213: 3083089168873209362
+    second: characters_0
   - first:
-      213: 9039870103976569257
-    second: menu-de-balas2_1
+      213: -517894308114096243
+    second: characters_1
   - first:
-      213: -8005137497183985273
-    second: menu-de-balas2_2
+      213: 7755224123621818408
+    second: characters_2
+  - first:
+      213: -3557554893070573299
+    second: characters_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -108,64 +111,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menu-de-balas2_0
+      name: characters_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 168
-        width: 472
-        height: 80
+        x: 437
+        y: 529
+        width: 322
+        height: 384
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92bfc1a9d48f1a800800000000000000
-      internalID: 622051235735599913
+      spriteID: 21eba81a34559ca20800000000000000
+      internalID: 3083089168873209362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: menu-de-balas2_1
+      name: characters_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 88
-        width: 471
-        height: 80
+        x: 943
+        y: 540
+        width: 309
+        height: 369
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a9623bd6f1147d70800000000000000
-      internalID: 9039870103976569257
+      spriteID: d8f99a5eed110d8f0800000000000000
+      internalID: -517894308114096243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: menu-de-balas2_2
+      name: characters_2
       rect:
         serializedVersion: 2
-        x: 20
-        y: 8
-        width: 472
-        height: 80
+        x: 475
+        y: 124
+        width: 336
+        height: 398
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 781603efbd908e090800000000000000
-      internalID: -8005137497183985273
+      spriteID: 820c402604710ab60800000000000000
+      internalID: 7755224123621818408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_3
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 94
+        width: 336
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0163996ca601aec0800000000000000
+      internalID: -3557554893070573299
       vertices: []
       indices: 
       edges: []
@@ -182,7 +206,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

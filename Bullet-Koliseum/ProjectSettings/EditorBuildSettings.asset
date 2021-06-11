@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Atention.unity
+    guid: e8b7f25d1ae4fe146aae9fd924c39388
+  - enabled: 1
     path: Assets/Scenes/Monachina.unity
     guid: c476c0f2347ba914ca80e404d815324c
+  - enabled: 1
+    path: Assets/Scenes/SelectPlayer.unity
+    guid: 509a67b946f8b3146b7bc019d7ddfec1
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9e63b2dd1a7b0ae4c9f58a3037a46ddc
+  - enabled: 1
+    path: Assets/Scenes/Volumen.unity
+    guid: a749847926514184396f16e75b6205fb
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: ada681bc631686c47b4559078dd31330
+  - enabled: 1
+    path: Assets/Scenes/PantallaPrincipal.unity
+    guid: c94b9781952fa56419fcc639ad521635
+  - enabled: 1
+    path: Assets/Scenes/MonaChinaWins.unity
+    guid: 688271e8158790c4281cd5b53f7efd1e
   m_configObjects: {}
